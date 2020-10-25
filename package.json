@@ -1,0 +1,30 @@
+{
+  "name": "pafrontend",
+  "version": "1.0.0",
+  "description": "Frontend para el proyecto final de programación avanzada en nextjd",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alejo0o/YahooFrontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alejo0o/YahooFrontend/issues"
+  },
+  "homepage": "https://github.com/alejo0o/YahooFrontend#readme",
+  "dependencies": {
+    "next": "9.5.5",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "styled-components": "5.2.0"
+  }
+}
