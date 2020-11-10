@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const NavBar = styled.div`
   // border: blue solid;
@@ -10,7 +10,7 @@ export const NavBar = styled.div`
     border-radius: 8px;
   }
 `;
-export const NvForm = styled.a`
+export const NvForm = styled.div`
   width: 75%;
 `;
 export const NbLink = styled.a`

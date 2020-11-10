@@ -4,6 +4,8 @@ import Error from 'next/error';
 import Categorias from '../Categorias/Categorias';
 import Puntajes from '../Clasificacion/Clasificacion';
 import Loader from '../../Components/Spinner/Spinner';
+import NavBar from '../Navbar/Navbar';
+import Footer from '../Footer/Footer';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -22,13 +24,13 @@ const Layout = ({ children }) => {
   if (categorias && puntajes) {
     return (
       <div>
-        <div>aqui va el navbar</div>
+        <NavBar />
         <div style={{ display: 'flex' }}>
           <Categorias listacategorias={categorias} />
           {children}
           <Puntajes listaClasificacion={puntajes} />
         </div>
-        <footer>aqui va el footerx</footer>
+        <Footer />
       </div>
     );
   }
