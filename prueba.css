@@ -8,4 +8,9 @@
   align-items: center;
   justify-items: center;
   align-items: center;
+  border: solid 10px black;
+  margin-top: '1em';
+  color: black;
+  text-align: right;
+  border-bottom: solid 5px black;
 }

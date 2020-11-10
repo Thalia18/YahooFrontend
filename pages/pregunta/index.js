@@ -4,32 +4,13 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import Loader from '../../Components/Spinner/Spinner';
 import ErrorPage from 'next/error';
-import Categorias from '../../Components/Categorias/Categorias';
-import Clasificacion from '../../Components/Clasificacion/Clasificacion';
+
 //Styles
 import { PreguntaIndexContainer } from '../../Components/Layout/EstilosGlobales';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-export const getStaticProps = async () => {
-  const { data: categorias } = await axios.get(
-    `https://localhost:5001/api/categoria/`
-  );
-  const catNombres = categorias.map(({ catnombre }) => catnombre);
-
-  const { data: puntajes } = await axios.get(
-    'https://localhost:5001/api/customqueries/ordenarusuarios'
-  );
-
-  return {
-    props: {
-      catNombres,
-      puntajes,
-    },
-  };
-};
-
-const index = ({ catNombres, puntajes }) => {
+const index = () => {
   const {
     query: { user, category }, //obtiene los parametros de la url
   } = useRouter();
@@ -70,13 +51,11 @@ const index = ({ catNombres, puntajes }) => {
   if (error) return <ErrorPage />;
   return (
     <PreguntaIndexContainer>
-      <Categorias listacategorias={catNombres} />
       <Pregunta
         evento={handleChange}
         formValues={pregunta}
         buttonClick={onClickButton}
       />
-      <Clasificacion listaClasificacion={puntajes.data} />
     </PreguntaIndexContainer>
   );
 };
