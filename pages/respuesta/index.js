@@ -11,10 +11,10 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 export const getServerSideProps = async (ctx) => {
   const { data: respuestasPregunta } = await axios.get(
-    `https://localhost:5001/api/customqueries/respPregunta/${ctx.query.respid}`
+    `https://localhost:5001/api/customqueries/respPregunta/${ctx.query.pregid}`
   );
   const { data: preguntaRespuesta } = await axios.get(
-    `https://localhost:5001/api/customqueries/pregResp/${ctx.query.respid}`
+    `https://localhost:5001/api/customqueries/pregResp/${ctx.query.pregid}`
   );
   return {
     props: {

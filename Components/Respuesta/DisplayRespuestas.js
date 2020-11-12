@@ -68,7 +68,6 @@ const DisplayRespuestas = ({ respuestasPregunta, preguntaRespuesta }) => {
                 <Header
                   style={{
                     marginBottom: '0.5em',
-                    fontWeight: 'normal',
                     fontSize: '15px',
                   }}>
                   <Image
@@ -80,7 +79,13 @@ const DisplayRespuestas = ({ respuestasPregunta, preguntaRespuesta }) => {
                 </Header>
                 <List.Description>{respuesta.resptexto}</List.Description>
                 <br />
-                {fechahorare}
+                <List.Description
+                  style={{
+                    fontSize: '12px',
+                    color: 'lightgray',
+                  }}>
+                  {fechahorare}
+                </List.Description>
               </List.Content>
             </List.Item>
           );
