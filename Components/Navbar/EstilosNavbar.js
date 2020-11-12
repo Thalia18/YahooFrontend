@@ -7,7 +7,8 @@ export const NavBar = styled.div`
   background-color: #dae5ed;
   padding-top: 1.2em;
 `;
-export const Btn = styled.a`
+export const Btn = styled.button`
+  color: white;
   background: #283049;
   padding: 0.15em 0.35em;
   border-color: #283049;
