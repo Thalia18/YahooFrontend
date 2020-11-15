@@ -4,6 +4,7 @@ import 'semantic-ui-css/semantic.min.css';
 import {
   MainContainer,
   ListaItem,
+  ListaItem1,
 } from '../Respuesta/EstilosDisplayRespuestas';
 import Link from 'next/link';
 
@@ -68,7 +69,7 @@ const DisplayRespuestas = ({ respuestasPregunta, preguntaRespuesta }) => {
             var fechahorare = fechare + '\t' + horare;
 
             return (
-              <List.Item key={respuesta.respid} style={ListaItem}>
+              <List.Item key={respuesta.respid} style={ListaItem1}>
                 <List.Content>
                   <Header
                     style={{
@@ -109,20 +110,20 @@ const DisplayRespuestas = ({ respuestasPregunta, preguntaRespuesta }) => {
 
       <List>
         {respuestasPregunta.map((respuesta) => {
-          var fechre = respuesta.respfecha;
-          var fechare = fechre.substring(0, 10);
-
-          var horare =
-            respuesta.resphora.hours +
-            'h ' +
-            respuesta.resphora.minutes +
-            'm ' +
-            respuesta.resphora.seconds +
-            's';
-
-          var fechahorare = fechare + '\t' + horare;
-
           if (respuesta.respid != preguntaRespuesta[0].pregmejorresp) {
+            var fechre = respuesta.respfecha;
+            var fechare = fechre.substring(0, 10);
+
+            var horare =
+              respuesta.resphora.hours +
+              'h ' +
+              respuesta.resphora.minutes +
+              'm ' +
+              respuesta.resphora.seconds +
+              's';
+
+            var fechahorare = fechare + '\t' + horare;
+
             return (
               <List.Item key={respuesta.respid} style={ListaItem}>
                 <List.Content>
