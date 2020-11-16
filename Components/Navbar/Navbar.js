@@ -19,7 +19,7 @@ const ComponentNavbar = () => {
   const [busca, setBusca] = useState(String);
   const handleChange = (e) => {
     //maneja el cambio en el componente hijo y setea los valores a las variables de estado
-    (e) => setBusca(e.target.value);
+    setBusca({});
   };
   return (
     <NavBar>

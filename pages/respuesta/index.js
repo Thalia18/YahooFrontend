@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Loader from '../../Components/Spinner/Spinner';
-import ErrorPage from 'next/error';
-import Link from 'next/link';
-import DisplayRespuestas from '../../Components/Respuesta/DisplayRespuestas';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Loader from "../../Components/Spinner/Spinner";
+import ErrorPage from "next/error";
+import Link from "next/link";
+import DisplayRespuestas from "../../Components/Respuesta/DisplayRespuestas";
 //Styles
-import { PreguntaIndexContainer } from '../../Components/Layout/EstilosGlobales';
+import { PreguntaIndexContainer } from "../../Components/Layout/EstilosGlobales";
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 export const getServerSideProps = async (ctx) => {
   const { data: respuestasPregunta } = await axios.get(
@@ -40,9 +40,10 @@ const index = ({ respuestasPregunta, preguntaRespuesta }) => {
       </PreguntaIndexContainer>
       <Link
         href={{
-          pathname: '/pregunta',
-          query: { user: '1', category: '2' },
-        }}>
+          pathname: "/pregunta",
+          query: { user: "1", category: "2" },
+        }}
+      >
         <a>Segunda Pagina</a>
       </Link>
     </>
