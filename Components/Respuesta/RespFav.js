@@ -8,14 +8,14 @@ import {
 } from '../Respuesta/EstilosDisplayRespuestas';
 import { fechF } from '../../utils';
 
-const DisplayRespuestas = ({ respuestasPregunta }) => {
+const RespFav = ({ respFav }) => {
   return (
     <MainContainer>
       <List>
-        {respuestasPregunta.map((respuesta) => {
+        {respFav.map((respuesta) => {
           var fechahorare = fechF(respuesta.respfecha, respuesta.resphora);
           return (
-            <List.Item key={respuesta.respid} style={ListaItem}>
+            <List.Item key={respuesta.respid} style={ListaItem1}>
               <List.Content>
                 <Header
                   style={{
@@ -29,6 +29,15 @@ const DisplayRespuestas = ({ respuestasPregunta }) => {
                   />
                   {respuesta.usernick}
                 </Header>
+                <List.Description
+                  style={{
+                    fontSize: '12px',
+                    color: 'lightgray',
+                  }}>
+                  <i className='trophy icon'></i>
+                  Mejor Respuesta
+                </List.Description>
+                <br />
                 <List.Description>{respuesta.resptexto}</List.Description>
                 <br />
                 <List.Description
@@ -47,4 +56,4 @@ const DisplayRespuestas = ({ respuestasPregunta }) => {
   );
 };
 
-export default DisplayRespuestas;
+export default RespFav;
