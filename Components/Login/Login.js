@@ -5,20 +5,16 @@ import {
   Grid,
   Header,
   Icon,
-  Message,
-  Segment,
   Modal,
   Button,
   Tab,
 } from "semantic-ui-react";
 import { MainContainer, MainContainerS } from "./EstilosLogin";
-import { SignUp } from "../SignUp/SignUp";
 const options = [
   { key: "Masculino", text: "Masculino", value: "Masculino" },
   { key: "Femenino", text: "Femenino", value: "Femenino" },
   { key: "Otro", text: "Otro", value: "Otro" },
 ];
-
 function LoginForm({
   eventoLogin,
   formValuesLogin,
@@ -32,6 +28,42 @@ function LoginForm({
   const handleOnChange = (e, data) => {
     formValuesSignUp.usersexo = data.value;
   };
+  function validateNick(value) {
+    let error;
+    if (!value) {
+      error = "Campo requerido";
+    } else if (!/^[A-Z%+][A-Z0-9%+]{0,254}$/i.test(value)) {
+      error = "Nickname no puede contener -_. o empezar con números";
+    }
+    return error;
+  }
+  function validateRequired(value) {
+    let error;
+    if (!value) error = "Campo requerido";
+    return error;
+  }
+  function validateEmail(value) {
+    let error;
+    if (!value) {
+      error = "Campo requerido";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+      error = "Email inválido";
+    }
+    return error;
+  }
+  function validateFoto(value) {
+    let error;
+    if (!value) {
+      error = "Campo requerido";
+    } else if (
+      !/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/i.test(
+        value
+      )
+    ) {
+      error = "Email inválido";
+    }
+    return error;
+  }
   const panes = [
     {
       menuItem: { key: "Login", icon: "users", content: "Login" },
@@ -60,6 +92,7 @@ function LoginForm({
                       type="nick"
                       name="usernick"
                       value={formValuesLogin.usernick}
+                      error={validateNick(formValuesLogin.usernick)}
                     />
                   </Form.Group>
                   <Form.Group widths="equal">
@@ -71,6 +104,7 @@ function LoginForm({
                       onChange={eventoLogin}
                       name="userpass"
                       value={formValuesLogin.userpass}
+                      error={validateRequired(formValuesLogin.userpass)}
                     />
                   </Form.Group>
                   <Form.Button
@@ -114,6 +148,7 @@ function LoginForm({
                       onChange={eventoSignUp}
                       name="usernombre"
                       value={formValuesSignUp.usernombre}
+                      error={validateRequired(formValuesSignUp.usernombre)}
                     />
                     <Form.Input
                       fluid
@@ -122,6 +157,7 @@ function LoginForm({
                       onChange={eventoSignUp}
                       name="userapellido"
                       value={formValuesSignUp.userapellido}
+                      error={validateRequired(formValuesSignUp.userapellido)}
                     />
                     <Form.Input
                       fluid
@@ -130,6 +166,7 @@ function LoginForm({
                       onChange={eventoSignUp}
                       name="usernick"
                       value={formValuesSignUp.usernick}
+                      error={validateNick(formValuesSignUp.usernick)}
                     />
                   </Form.Group>
                   <Form.Group widths="equal">
@@ -141,6 +178,7 @@ function LoginForm({
                       type="date"
                       name="userfechanacimiento"
                       value={formValuesSignUp.userfechanacimiento}
+                      required
                     />
 
                     <Form.Select
@@ -151,6 +189,7 @@ function LoginForm({
                       onChange={handleOnChange}
                       name="usersexo"
                       selection
+                      required
                     />
                   </Form.Group>
                   <Form.Group widths="equal">
@@ -162,6 +201,7 @@ function LoginForm({
                       type="email"
                       name="useremail"
                       value={formValuesSignUp.useremail}
+                      error={validateEmail(formValuesSignUp.useremail)}
                     />
                     <Form.Input
                       fluid
@@ -171,6 +211,7 @@ function LoginForm({
                       onChange={eventoSignUp}
                       name="userpass"
                       value={formValuesSignUp.userpass}
+                      error={validateRequired(formValuesSignUp.userpass)}
                     />
                   </Form.Group>
                   <Form.Group widths="equal">
@@ -181,6 +222,7 @@ function LoginForm({
                       onChange={eventoSignUp}
                       name="userfoto"
                       value={formValuesSignUp.userfoto}
+                      error={validateFoto(formValuesSignUp.userfoto)}
                     />
                   </Form.Group>
                   <Form.Button

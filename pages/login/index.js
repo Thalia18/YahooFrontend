@@ -61,6 +61,7 @@ const index = () => {
         window.location = "http://localhost:3000";
       } else {
         cookies.remove("cookie1");
+        seterror(error);
       }
       console.log(cookies.get("cookie1"));
       setloading(false);
